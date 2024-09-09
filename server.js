@@ -34,7 +34,8 @@ app.post('/cadastro', (req, res) => {
         return res.status(409).json({ message: 'CPF já cadastrado' });
     }
 
-    const novoCadastro = ('INSERT INTO cadastros (nome, cpf, telefone) VALUES ($1, $2, $3)', [nome, cpf, telefone]);
+    const novoCadastro = { nome, cpf, telefone };
+    cadastroData.push(novoCadastro);
 
     res.status(201).json({ message: 'Cadastro realizado com sucesso', data: novoCadastro });
 });
@@ -51,7 +52,6 @@ app.get('/cadastro/:cpf', (req, res) => {
     }
 });
 
- console.log(cadastroData);
 
 app.listen(port, () => {
     console.log(`Servidor rodando em http://localhost:${port}`);
