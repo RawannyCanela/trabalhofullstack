@@ -5,7 +5,7 @@
   "scripts": {
     "start": "node server.js"
   },
-  "author": "Jamilly Hamid",
+  "author": "Rawanny Canela",
   "license": "ISC",
   "dependencies": {
     "axios": "^1.7.7",

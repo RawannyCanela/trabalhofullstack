@@ -6,7 +6,7 @@ document.getElementById('formCadastro').addEventListener('submit', async functio
     const telefone = document.getElementById('telefone').value;
 
     try {
-        const response = await fetch('/cadastro', {
+        const response = await fetch('/Cadastro', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
