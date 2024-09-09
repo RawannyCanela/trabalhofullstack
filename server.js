@@ -34,8 +34,7 @@ app.post('/cadastro', (req, res) => {
         return res.status(409).json({ message: 'CPF já cadastrado' });
     }
 
-    const novoCadastro = { nome, cpf, telefone };
-    cadastroData.push(novoCadastro);
+    const novoCadastro = ('INSERT INTO cadastros (nome, cpf, telefone) VALUES ($1, $2, $3)', [nome, cpf, telefone]);
 
     res.status(201).json({ message: 'Cadastro realizado com sucesso', data: novoCadastro });
 });
@@ -51,6 +50,8 @@ app.get('/cadastro/:cpf', (req, res) => {
         res.status(404).send('Cadastro não encontrado');
     }
 });
+
+ console.log(cadastroData);
 
 app.listen(port, () => {
     console.log(`Servidor rodando em http://localhost:${port}`);
