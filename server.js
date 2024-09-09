@@ -29,7 +29,6 @@ app.post('/cadastro', (req, res) => {
         return res.status(400).json({ message: 'CPF inválido' });
     }
 
-    // Verificar se o CPF já existe no sistema
     const cpfExistente = cadastroData.find(c => c.cpf === cpf);
     if (cpfExistente) {
         return res.status(409).json({ message: 'CPF já cadastrado' });
